@@ -1,0 +1,458 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+div#pokemons-list {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-bottom: 80px;
+}
+
+/* -------------------------------------------------- ADD CONTAINER ------------------------------------------------- */
+
+.container#add-container .img-container div {
+    cursor: pointer;
+}
+.container#add-container .img-container div img.img-pokemon,
+.container#add-container .img-container div img.sprite-pokemon {
+    visibility: hidden;
+}
+.container#add-container .img-container .filter {
+    display: block;
+}
+
+.container#add-container .footer div {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 5px;
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0%);
+}
+.container#add-container .footer div p {
+    font-size: 24px;
+    font-weight: bold;
+}
+.container#add-container .footer input {
+    font-size: 24px;
+    width: 100%;
+}
+
+.container#add-container .footer .confirm,
+.container#add-container .footer .cancel,
+.container#add-container .footer .confirm img,
+.container#add-container .footer .cancel img {
+    height: 30px;
+    width: 30px;
+    transition: 0.5s;
+    background: none;
+    border: none;
+}
+.container#add-container .footer .confirm:hover img,
+.container#add-container .footer .cancel:hover img {
+    transform: scaleX(0.8) scaleY(0.8);
+}
+.container#add-container .footer .confirm {
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+}
+.container#add-container .footer .cancel {
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+}
+
+/* ------------------------------------------------ NORMAL CONTAINER ------------------------------------------------ */
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 340px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.container.open {
+    margin-bottom: 50px;
+}
+.container.close {
+    margin-bottom: 50px;
+    position: relative;
+    max-height: 250px;
+}
+.container.close img {
+    cursor: pointer;
+    transition: 0.5s;
+}
+.container.close img.close:hover {
+    transform: scale(1.2) translateX(-41.5px) translateY(-41.5px);
+}
+
+.container .header {
+    background-image: url("images/pokeball.png");
+    background-position: 50% 37%;
+    background-size: 500px;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    height: 105px;
+    position: relative;
+}
+.container .header h1 {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.container .header span {
+    font-weight: bold;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(0, 100%);
+}
+.container .header .trash {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    transition: 0.1s;
+}
+.container .header .trash img {
+    height: 20px;
+    width: 20px;
+}
+.container .header .trash:hover {
+    transform: rotateZ(15deg);
+}
+
+.container img.open {
+    width: 150px;
+    height: 150px;
+    margin: 10px 0;
+}
+.container img.close {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 100%;
+}
+
+.container .types {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.container .types div {
+    display: grid;
+    grid-template-columns: max-content auto;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+.container .types div input {
+    height: 15px;
+    width: 15px;
+}
+.container .types div label {
+    text-align: left;
+    padding-left: 5px;
+}
+.container .types {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+.container .types div {
+    margin: auto;
+    padding: 5px;
+    width: fit-content;
+}
+
+.container .stats {
+    margin: 10px 0;
+    width: 100%;
+}
+.container .stats tr {
+    height: 25px;
+}
+.container .stats tr td:first-child {
+    width: 50%;
+    text-align: right;
+    padding-right: 5px;
+}
+.container .stats tr td:nth-child(2) {
+    width: 50%;
+    text-align: left;
+    padding-left: 5px;
+}
+.container .stats tr td:nth-child(2) input {
+    width: 50%;
+}
+
+.container .footer {
+    background-image: url("images/pokeball.png");
+    background-position: 50% 63%;
+    background-size: 500px;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    height: 105px;
+    position: relative;
+}
+.container .footer h3 {
+    color: #000;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+.container .footer .settings {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    transition: 0.5s;
+}
+.container .footer .settings img {
+    height: 30px;
+    width: 30px;
+}
+.container .footer .settings:hover {
+    transform: rotateZ(90deg);
+}
+
+/* ------------------------------------------------- MODIFY VERSION ------------------------------------------------- */
+.container .img-container {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    margin: 10px auto;
+}
+
+.container .header input {
+    text-align: center;
+    color: #e41f25;
+    font-size: 18px;
+    font-weight: bold;
+}
+.container .header input:last-child {
+    font-size: 14px;
+    width: 28%;
+    color: #000000;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(0, -35%);
+ }
+
+.container .img-container div {
+    position: relative;
+    cursor: pointer;
+    margin: auto;
+}
+/*TODO : IN PROGRESS*/
+.container .img-container div p.in-progress {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    transform: translate(-50%, -50%) rotateZ(-45deg) ;
+}
+.container .img-container div,
+.container .img-container div img,
+.container .img-container div div {
+    height: 100px;
+    width: 100px;
+}
+.container .img-container div img,
+.container .img-container div div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.container .img-container div img.modify-icon {
+    display: none;
+    opacity: 0.5;
+    transform: translate(50%, 50%);
+}
+
+.container .img-container div .filter {
+    /*TODO : IN PROGRESS*/
+    /*display: none;*/
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(214, 214, 214, 0.8);
+    border-radius: 10px;
+    opacity: 0.4;
+}
+.container .img-container div .modify-icon {
+    width: 50%;
+    height: 50%;
+}
+.container .img-container div:hover .filter,
+.container .img-container div:hover .modify-icon {
+    display: block;
+}
+.container .img-container div input {
+    display: none;
+}
+
+.container .footer .buttons {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+.container .footer .buttons a {
+    text-decoration: none;
+}
+.container .footer .buttons .confirm,
+.container .footer .buttons .cancel,
+.container .footer .buttons .confirm img,
+.container .footer .buttons .cancel img {
+    height: 30px;
+    width: 30px;
+    transition: 0.5s;
+    background: none;
+    border: none;
+}
+.container .footer .buttons .confirm:hover img,
+.container .footer .buttons .cancel:hover img {
+    transform: scaleX(0.8) scaleY(0.8);
+}
+
+/* -------------------------------------------------- MAIN FOOTER --------------------------------------------------- */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #ffcb05;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+
+    border-top: #3466af 5px solid;
+}
+
+footer select#per-page,
+footer select#types {
+    padding: 5px;
+    background-color: #3466af;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    margin: auto;
+}
+
+footer img {
+    height: 80px;
+    cursor: pointer;
+}
+footer img.icon {
+    height: 50px;
+    display: block;
+    margin: auto;
+}
+
+footer #pageselector {
+    display: flex;
+    align-items: center;
+}
+footer #pageselector button {
+    background-color: #3466af;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+footer #pageselector button:disabled {
+    background-color: #684b4b;
+}
+footer #pageselector span {
+    font-size: 1.2em;
+    color: #3466af;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------- RESPONSIVE --------------------------------------------------- */
+@media only screen and (max-width: 1450px) {
+    div#pokemons-list {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    div#pokemons-list {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    div#pokemons-list {
+        grid-template-columns: auto;
+    }
+
+    footer {
+        display: block;
+        height: 100px;
+    }
+
+    footer img {
+        display: none;
+    }
+
+    footer select#per-page{
+        position: absolute;
+        top: 10px;
+        left: 10%;
+    }
+    footer select#types {
+        position: absolute;
+        top: 10px;
+        right: 10%;
+    }
+    footer a {
+        position: absolute;
+        bottom: 5px;
+        left: 10%;
+    }
+    footer div#pageselector {
+        position: absolute;
+        bottom: 10px;
+        right: 10%;
+    }
+}

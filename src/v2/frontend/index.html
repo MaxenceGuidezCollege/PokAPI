@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Vinc/Mig/Max">
+        <meta name="description" content="420-5SE-AA Sommatif 1">
+        <title>PokAPI</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <header class="" onclick="this.classList.add('open');">
+            <img src="./images/icons/icon_account.png" alt="Profile image">
+
+            <div>
+                <span>
+                    <strong>Email :</strong>
+                    <p id="user-email">maxence.guigui@gmail.com</p>
+                </span>
+                <div id="pwd-container">
+                    <!--Password information will be added in this component-->
+                </div>
+
+                <a href="" class="logout">Log out</a>
+            </div>
+        </header>
+    
+        <div id="pokemons-list">
+            <!--Add container will be added at the top of this component-->
+            <!--Pokémon's containers will be added in this component-->
+        </div>
+
+        <footer>
+            <select id="per-page" onchange="update()">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50" selected>50</option>
+                <option value="100">100</option>
+            </select>
+
+            <select id="types" onchange="onChangeTypes();">
+                <!--Pokémon types options will be added in this component-->
+            </select>
+
+            <a onclick="update('base')">
+                <img src="images/pokapi.png" alt="PokAPI logo">
+            </a>
+
+            <a id="download-pdf">
+                <img src="images/icons/icon_pdf.png" alt="Icon download as PDF" class="PDF icon">
+            </a>
+
+            <div id="pageselector">
+                <button id="first" onclick="update(firstPage)"><<</button>
+                <button id="prev" onclick="update(prevPage)"><</button>
+                <span id="page">?</span>
+                <button id="next" onclick="update(nextPage)">></button>
+                <button id="last" onclick="update(lastPage)">>></button>
+            </div>
+        </footer>
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="stylesA14n.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <img src="../images/signUp.png" alt="Logo">
+        </div>
+    </div>
+    <div class="form-container">
+        <form action="/v2/registered" method="post" enctype="application/x-www-form-urlencoded">
+            <label for="username">Trainer:</label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <label for="confirmPassword"></label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+
+            <p>Already have an account? <a href="signIn.html">Sign In</a></p>
+
+            <button type="submit">Get my Pokedex</button>
+        </form>
+    </div>
+</div>
+<script src="utilsA14n.js"></script>
+</body>
+</html>
